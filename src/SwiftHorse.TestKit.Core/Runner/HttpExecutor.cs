@@ -1,58 +1,57 @@
 ﻿using Newtonsoft.Json;
+using SwiftHorse.TestKit.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SwiftHorse.TestKit.Core.Runner
 {
     internal class HttpExecutor
     {
-        private readonly string _host;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public HttpExecutor(string host)
+        public HttpExecutor(IHttpClientFactory httpClientFactory)
         {
-            _host = host;
+            _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<HttpResponseMessage> SendAsQueryAsync(HttpRequestInfo info, Action<HttpRequestMessage> configure = null)
+        public async Task<HttpResponseMessage> SendAsync(string host, TestCaseDto testCase)
         {
-            if (string.IsNullOrWhiteSpace(info.Method)) { info.Method = "Get"; }
-
-            if (info.Data != null)
+            var httpMethod = new HttpMethod(testCase.HttpMethod);
+            var message = new HttpRequestMessage(httpMethod, BuildUrl(testCase))
             {
-                info.Url += $"?{info.Data}";
+                Content = BuildContent(testCase)
+            };
+            //message.Headers.Add("Authorization", IOCContainer.Resolve<ITokenAccessor>().Get());
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(host);
+            return await client.SendAsync(message);
+        }
+
+        private string BuildUrl(TestCaseDto testCase)
+        {
+            var url = testCase.Url;
+            if (new Regex("{\\d+}").IsMatch(url))
+            {
+                return string.Format(url, testCase.Data.Split(','));
             }
-
-            return await SendAsync(info, configure: configure);
-        }
-
-        public async Task<HttpResponseMessage> SendAsJsonAsync(HttpRequestInfo info, Action<HttpRequestMessage> configure = null)
-        {
-            info.Content = new StringContent(info.Data, Encoding.UTF8, "application/json");
-            return await SendAsync(info, configure: configure);
-        }
-
-        public async Task<HttpResponseMessage> SendAsync(HttpRequestInfo info, Action<HttpRequestMessage> configure = null)
-        {
-            var message = new HttpRequestMessage(new HttpMethod(info.Method), $"{_host}{info.Url}")
+            if (testCase.ContentType == ContentTypes.Url)
             {
-                Content = info.Content
-            };
-            //message.Headers.Add("Authorization", IOCContainer.Resolve<ITokenAccessor>().Get());
-            configure?.Invoke(message);
-            return await new HttpClient().SendAsync(message);
+                url = $"{url}?{testCase.Data}";
+            }
+            return url;
         }
 
-        public async Task<HttpResponseMessage> SendAsync(TestCaseDto testCase)
+        private HttpContent BuildContent(TestCaseDto testCase)
         {
-            var message = new HttpRequestMessage(new HttpMethod(testCase.HttpMethod), $"{_host}{testCase.Url}")
+            if (testCase.ContentType == ContentTypes.Json || testCase.ContentType == ContentTypes.FormUrlencoded)
             {
-                //Content = info.Content
-            };
-            //message.Headers.Add("Authorization", IOCContainer.Resolve<ITokenAccessor>().Get());
-            return await new HttpClient().SendAsync(message);
+                return new StringContent(testCase.Data, Encoding.UTF8, testCase.ContentType);
+            }
+            return null;
         }
     }
 

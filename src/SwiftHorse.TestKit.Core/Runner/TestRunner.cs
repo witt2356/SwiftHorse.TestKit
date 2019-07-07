@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwiftHorse.TestKit.Core.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,10 +10,11 @@ namespace SwiftHorse.TestKit.Core.Runner
         public async Task Run(Guid id)
         {
             var cases = await GetCases(id);
-            var executor = new HttpExecutor("http://localhost");
+
+            var executor = ServiceResolver.CreateInstance<HttpExecutor>();
             foreach (var tc in cases)
             {
-                var response = await executor.SendAsync(tc);
+                var response = await executor.SendAsync("http://localhost", tc);
             }
         }
 

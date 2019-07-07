@@ -30,6 +30,8 @@ namespace SwiftHorse.TestKit.WebApi
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddHttpClient();
+
             return services.AddAbp<WebApiModule>();
         }
 
