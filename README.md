@@ -1,0 +1,2 @@
+# SwiftHorse.TestKit
+test kit
