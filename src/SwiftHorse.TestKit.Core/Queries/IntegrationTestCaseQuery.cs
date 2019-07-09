@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SwiftHorse.TestKit.Core.Runner
+namespace SwiftHorse.TestKit.Core
 {
-    public class TestIntegrationRunner : TestRunner
+    internal class IntegrationTestCaseQuery : ITestCaseQuery<IIntegrationTestRepository>
     {
         private readonly IIntegrationTestRepository _repository;
 
-        public TestIntegrationRunner(IIntegrationTestRepository repository)
+        public IntegrationTestCaseQuery(IIntegrationTestRepository repository)
         {
             _repository = repository;
         }
 
-        public override async Task<IEnumerable<TestCaseDto>> GetCases(Guid id)
+        public async Task<IEnumerable<TestCaseDto>> Query(Guid id)
         {
             var sql = @"SELECT a.Url,a.HttpMethod,a.ContentType,tc.Data,ic.Order FROM IntegrationCases ic
                 INNER JOIN IntegrationTests it ON it.Id=ic.TestId AND it.Id=@Id

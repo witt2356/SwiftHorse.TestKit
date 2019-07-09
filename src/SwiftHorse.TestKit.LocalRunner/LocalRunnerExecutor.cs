@@ -1,21 +1,26 @@
-﻿using Newtonsoft.Json;
+﻿using SwiftHorse.TestKit.Core;
 using SwiftHorse.TestKit.Core.Models;
+using SwiftHorse.TestKit.Core.Runner;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SwiftHorse.TestKit.Core.Runner
+namespace SwiftHorse.TestKit.LocalRunner
 {
-    internal class HttpExecutor
+    public class LocalRunnerExecutor : IRunnerExecutor
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public HttpExecutor(IHttpClientFactory httpClientFactory)
+        public LocalRunnerExecutor(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task Execute(string host, TestCaseDto testCase)
+        {
+            var response = await SendAsync(host, testCase);
         }
 
         public async Task<HttpResponseMessage> SendAsync(string host, TestCaseDto testCase)
@@ -52,19 +57,6 @@ namespace SwiftHorse.TestKit.Core.Runner
                 return new StringContent(testCase.Data, Encoding.UTF8, testCase.ContentType);
             }
             return null;
-        }
-    }
-
-    internal class HttpRequestInfo
-    {
-        public string Url { get; set; }
-        public string Method { get; set; }
-        public string Data { get; set; }
-        public HttpContent Content { get; set; }
-
-        public HttpRequestInfo(string url)
-        {
-            Url = url;
         }
     }
 }

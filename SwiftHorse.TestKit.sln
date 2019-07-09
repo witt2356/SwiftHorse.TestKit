@@ -7,13 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{26555870-ADE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{01F7A88D-F51E-42CA-AA1D-9BE961229041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftHorse.TestKit.Core", "src\SwiftHorse.TestKit.Core\SwiftHorse.TestKit.Core.csproj", "{0B7EF199-0C88-48B4-97E5-EA5F3340C8CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftHorse.TestKit.Core", "src\SwiftHorse.TestKit.Core\SwiftHorse.TestKit.Core.csproj", "{0B7EF199-0C88-48B4-97E5-EA5F3340C8CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftHorse.TestKit.WebApi", "src\SwiftHorse.TestKit.WebApi\SwiftHorse.TestKit.WebApi.csproj", "{A7A537BB-3102-4E6F-A22A-2AAFA2E36EDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftHorse.TestKit.WebApi", "src\SwiftHorse.TestKit.WebApi\SwiftHorse.TestKit.WebApi.csproj", "{A7A537BB-3102-4E6F-A22A-2AAFA2E36EDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftHorse.TestKit.Infrastructure", "src\SwiftHorse.TestKit.Infrastructure\SwiftHorse.TestKit.Infrastructure.csproj", "{2981E30C-0F04-4377-87C9-B06293A4240A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftHorse.TestKit.Infrastructure", "src\SwiftHorse.TestKit.Infrastructure\SwiftHorse.TestKit.Infrastructure.csproj", "{2981E30C-0F04-4377-87C9-B06293A4240A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftHorse.TestKit.Core.Test", "test\SwiftHorse.TestKit.Core.Test\SwiftHorse.TestKit.Core.Test.csproj", "{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftHorse.TestKit.Core.Test", "test\SwiftHorse.TestKit.Core.Test\SwiftHorse.TestKit.Core.Test.csproj", "{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftHorse.TestKit.LocalRunner", "src\SwiftHorse.TestKit.LocalRunner\SwiftHorse.TestKit.LocalRunner.csproj", "{5B210409-CA0C-4625-8BFC-C83DEF6A099D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftHorse.TestKit.LocalRunner.Test", "test\SwiftHorse.TestKit.LocalRunner.Test\SwiftHorse.TestKit.LocalRunner.Test.csproj", "{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B210409-CA0C-4625-8BFC-C83DEF6A099D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B210409-CA0C-4625-8BFC-C83DEF6A099D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B210409-CA0C-4625-8BFC-C83DEF6A099D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B210409-CA0C-4625-8BFC-C83DEF6A099D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{A7A537BB-3102-4E6F-A22A-2AAFA2E36EDE} = {26555870-ADEF-4917-9762-02552C2F84AA}
 		{2981E30C-0F04-4377-87C9-B06293A4240A} = {26555870-ADEF-4917-9762-02552C2F84AA}
 		{AEBAAEBA-58CA-4A74-AEF4-E43A007EF16F} = {01F7A88D-F51E-42CA-AA1D-9BE961229041}
+		{5B210409-CA0C-4625-8BFC-C83DEF6A099D} = {26555870-ADEF-4917-9762-02552C2F84AA}
+		{FB85EBAD-FE82-4098-A6D2-4939BD6E98D2} = {01F7A88D-F51E-42CA-AA1D-9BE961229041}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7EE3111-62F1-491E-8EBF-ADAB54747E5A}

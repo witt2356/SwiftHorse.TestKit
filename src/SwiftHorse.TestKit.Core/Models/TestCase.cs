@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace SwiftHorse.TestKit.Core.Models
 {
@@ -13,5 +14,9 @@ namespace SwiftHorse.TestKit.Core.Models
         /// 
         /// </summary>
         public string Data { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public ICollection<TestCaseAssert> Asserts { get; set; }
     }
 }
