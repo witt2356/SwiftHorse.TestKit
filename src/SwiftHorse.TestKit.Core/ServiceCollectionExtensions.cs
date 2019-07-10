@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace SwiftHorse.TestKit.Core
+namespace SwiftHorse.TestKit
 {
     public static class ServiceCollectionExtensions
     {

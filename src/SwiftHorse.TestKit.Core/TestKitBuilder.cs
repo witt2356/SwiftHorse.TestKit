@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace SwiftHorse.TestKit.Core
+namespace SwiftHorse.TestKit
 {
     public class TestKitBuilder
     {
