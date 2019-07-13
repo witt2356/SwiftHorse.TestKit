@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SwiftHorse.TestKit.Core.IRepositories;
-using SwiftHorse.TestKit.WebApi.Dtos;
+using SwiftHorse.TestKit.Core.Domain;
+using SwiftHorse.TestKit.Core.IServices.Dtos;
 using System;
 using System.Threading.Tasks;
 
@@ -8,9 +8,9 @@ namespace SwiftHorse.TestKit.WebApi.Controllers
 {
     public class ApiInfoController : ApiControllerBase
     {
-        private readonly IApiRepository _apiRepository;
+        private readonly IApiInfoRepository _apiRepository;
 
-        public ApiInfoController(IApiRepository apiRepository)
+        public ApiInfoController(IApiInfoRepository apiRepository)
         {
             _apiRepository = apiRepository;
         }
@@ -18,11 +18,11 @@ namespace SwiftHorse.TestKit.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> BulkPersist(InApiInfoBulkPersistDto input)
         {
-            foreach (var api in input.Apis)
+            foreach (var apiInfo in input.Apis)
             {
-                api.Id = Guid.NewGuid();
-                api.AppId = input.AppId;
-                await _apiRepository.InsertAsync(api);
+                apiInfo.Id = Guid.NewGuid();
+                apiInfo.AppId = input.AppId;
+                await _apiRepository.InsertAsync(apiInfo);
             }
 
             return Ok();

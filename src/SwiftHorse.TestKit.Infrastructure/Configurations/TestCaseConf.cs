@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SwiftHorse.TestKit.Core.Models;
+using SwiftHorse.TestKit.Core.Domain;
 
 namespace SwiftHorse.TestKit.Infrastructure.Configurations
 {

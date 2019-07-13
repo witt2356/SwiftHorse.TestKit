@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp.EntityFrameworkCore" Version="4.7.0" />
     <PackageReference Include="Dapper" Version="1.60.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SwiftHorse.Framework\src\SwiftHorse.Repository.EntityFrameworkCore\SwiftHorse.Repository.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\SwiftHorse.TestKit.Core\SwiftHorse.TestKit.Core.csproj" />
   </ItemGroup>
 

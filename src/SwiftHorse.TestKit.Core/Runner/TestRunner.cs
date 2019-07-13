@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SwiftHorse.TestKit.Core.IRepositories;
+using SwiftHorse.TestKit.Core.Domain;
 using System;
 using System.Threading.Tasks;
 

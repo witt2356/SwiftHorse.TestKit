@@ -1,7 +1,4 @@
-using SwiftHorse.TestKit.Core;
-using SwiftHorse.TestKit.Core.IRepositories;
 using SwiftHorse.TestKit.Core.Runner;
-using System;
 using System.Threading.Tasks;
 using Xunit;
 

@@ -1,8 +1,7 @@
-﻿using Abp.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace SwiftHorse.TestKit.Core.Models
+namespace SwiftHorse.TestKit.Core.Domain
 {
     /// <summary>
     /// Integration test case
@@ -12,6 +11,6 @@ namespace SwiftHorse.TestKit.Core.Models
         /// <summary>
         /// 
         /// </summary>
-        public ICollection<IntegrationCase> Cases { get; set; }
+        //public ICollection<IntegrationCase> Cases { get; set; }
     }
 }

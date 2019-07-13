@@ -1,12 +1,11 @@
-﻿using Abp.Domain.Entities;
-using System;
+﻿using System;
 
-namespace SwiftHorse.TestKit.Core.Models
+namespace SwiftHorse.TestKit.Core.Domain
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Api : AggregateRoot<Guid>
+    public class ApiInfo : AggregateRoot<Guid>
     {
         /// <summary>
         /// Application Id

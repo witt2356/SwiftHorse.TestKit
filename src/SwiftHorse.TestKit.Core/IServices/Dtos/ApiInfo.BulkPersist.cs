@@ -1,9 +1,12 @@
-﻿using SwiftHorse.TestKit.Core.Models;
+﻿using SwiftHorse.TestKit.Core.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace SwiftHorse.TestKit.WebApi.Dtos
+namespace SwiftHorse.TestKit.Core.IServices.Dtos
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class InApiInfoBulkPersistDto
     {
         /// <summary>
@@ -13,6 +16,6 @@ namespace SwiftHorse.TestKit.WebApi.Dtos
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<Api> Apis { get; set; }
+        public IEnumerable<ApiInfo> Apis { get; set; }
     }
 }

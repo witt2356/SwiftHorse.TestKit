@@ -1,8 +1,7 @@
-﻿using Abp.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace SwiftHorse.TestKit.Core.Models
+namespace SwiftHorse.TestKit.Core.Domain
 {
     public class TestCase : AggregateRoot<Guid>
     {
@@ -17,6 +16,6 @@ namespace SwiftHorse.TestKit.Core.Models
         /// <summary>
         /// 
         /// </summary>
-        public ICollection<TestCaseAssert> Asserts { get; set; }
+        //public ICollection<TestCaseAssertion> Assertions { get; set; }
     }
 }

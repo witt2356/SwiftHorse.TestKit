@@ -1,8 +1,6 @@
-﻿using Abp.Domain.Values;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
-namespace SwiftHorse.TestKit.Core.Models
+namespace SwiftHorse.TestKit.Core.Domain
 {
     /// <summary>
     /// 
@@ -17,11 +15,5 @@ namespace SwiftHorse.TestKit.Core.Models
         /// 
         /// </summary>
         public int Order { get; set; }
-
-        protected override IEnumerable<object> GetAtomicValues()
-        {
-            yield return CaseId;
-            yield return Order;
-        }
     }
 }

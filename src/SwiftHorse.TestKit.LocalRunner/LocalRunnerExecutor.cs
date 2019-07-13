@@ -1,5 +1,5 @@
 ﻿using SwiftHorse.TestKit.Core;
-using SwiftHorse.TestKit.Core.Models;
+using SwiftHorse.TestKit.Core.Domain;
 using SwiftHorse.TestKit.Core.Runner;
 using System;
 using System.Net.Http;

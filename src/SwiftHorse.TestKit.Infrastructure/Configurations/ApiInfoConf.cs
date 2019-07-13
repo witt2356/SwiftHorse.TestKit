@@ -4,11 +4,11 @@ using SwiftHorse.TestKit.Core.Domain;
 
 namespace SwiftHorse.TestKit.Infrastructure.Configurations
 {
-    internal class IntegrationTestConf : IEntityTypeConfiguration<IntegrationTest>
+    internal class ApiInfoConf : IEntityTypeConfiguration<ApiInfo>
     {
-        public void Configure(EntityTypeBuilder<IntegrationTest> builder)
+        public void Configure(EntityTypeBuilder<ApiInfo> builder)
         {
-            builder.ToTable("IntegrationTests");
+            builder.ToTable("Apis");
             builder.HasKey(x => x.Id);
         }
     }

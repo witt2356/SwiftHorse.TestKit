@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using SwiftHorse.TestKit.AspNetCore;
-using SwiftHorse.TestKit.Core.Models;
+using SwiftHorse.TestKit.Core.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

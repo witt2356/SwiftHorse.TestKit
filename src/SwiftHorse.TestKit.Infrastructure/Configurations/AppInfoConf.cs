@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SwiftHorse.TestKit.Core.Models;
+using SwiftHorse.TestKit.Core.Domain;
 
 namespace SwiftHorse.TestKit.Infrastructure.Configurations
 {
-    internal class ApiConf : IEntityTypeConfiguration<Api>
+    internal class AppInfoConf : IEntityTypeConfiguration<AppInfo>
     {
-        public void Configure(EntityTypeBuilder<Api> builder)
+        public void Configure(EntityTypeBuilder<AppInfo> builder)
         {
-            builder.ToTable("Apis");
+            builder.ToTable("Applications");
             builder.HasKey(x => x.Id);
         }
     }

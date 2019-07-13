@@ -1,7 +1,6 @@
-﻿using Abp.Domain.Entities;
-using System;
+﻿using System;
 
-namespace SwiftHorse.TestKit.Core.Models
+namespace SwiftHorse.TestKit.Core.Domain
 {
     /// <summary>
     /// 
