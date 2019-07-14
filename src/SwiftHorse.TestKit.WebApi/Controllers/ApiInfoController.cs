@@ -1,30 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SwiftHorse.TestKit.Core.Domain;
+using SwiftHorse.TestKit.Core.IServices;
 using SwiftHorse.TestKit.Core.IServices.Dtos;
-using System;
 using System.Threading.Tasks;
 
 namespace SwiftHorse.TestKit.WebApi.Controllers
 {
     public class ApiInfoController : ApiControllerBase
     {
-        private readonly IApiInfoRepository _apiRepository;
+        private readonly IApiInfoService _apiInfoService;
 
-        public ApiInfoController(IApiInfoRepository apiRepository)
+        public ApiInfoController(IApiInfoService apiInfoService)
         {
-            _apiRepository = apiRepository;
+            _apiInfoService = apiInfoService;
         }
 
-        [HttpPut]
-        public async Task<IActionResult> BulkPersist(InApiInfoBulkPersistDto input)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPut("Load")]
+        public async Task<IActionResult> Load(InApiInfoLoadDto input)
         {
-            foreach (var apiInfo in input.Apis)
-            {
-                apiInfo.Id = Guid.NewGuid();
-                apiInfo.AppId = input.AppId;
-                await _apiRepository.InsertAsync(apiInfo);
-            }
-
+            await _apiInfoService.Load(input);
             return Ok();
         }
     }

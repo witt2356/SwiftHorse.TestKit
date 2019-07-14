@@ -22,7 +22,7 @@ namespace SwiftHorse.TestKit.Core.Domain
         /// <summary>
         /// 
         /// </summary>
-        public string ContentType { get; set; } = ContentTypes.Json;
+        public string ContentType { get; set; }
     }
 
     /// <summary>

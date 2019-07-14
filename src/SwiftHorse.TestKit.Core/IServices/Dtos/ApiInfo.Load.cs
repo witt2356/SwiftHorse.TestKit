@@ -7,7 +7,7 @@ namespace SwiftHorse.TestKit.Core.IServices.Dtos
     /// <summary>
     /// 
     /// </summary>
-    public class InApiInfoBulkPersistDto
+    public class InApiInfoLoadDto
     {
         /// <summary>
         /// 

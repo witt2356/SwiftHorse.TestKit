@@ -15,5 +15,9 @@ namespace SwiftHorse.TestKit.AspNetCore
         /// 
         /// </summary>
         public Guid AppId { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        internal string Url { get; } = "/api/ApiInfo/Load";
     }
 }

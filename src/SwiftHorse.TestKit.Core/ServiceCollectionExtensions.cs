@@ -18,6 +18,7 @@ namespace SwiftHorse.TestKit
             configure?.Invoke(builder);
 
             services.AddScoped<IAppInfoService, AppInfoService>();
+            services.AddScoped<IApiInfoService, ApiInfoService>();
         }
     }
 }

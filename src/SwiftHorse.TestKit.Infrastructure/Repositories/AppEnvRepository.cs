@@ -2,7 +2,7 @@
 using SwiftHorse.TestKit.Core.Domain;
 using SwiftHorse.TestKit.Infrastructure;
 
-namespace SwiftHorse.TestKit.Core.IRepositories
+namespace SwiftHorse.TestKit.Infrastructure.Repositories
 {
     internal class AppEnvRepository : RepositoryBase<TestKitDbContext, AppEnv>, IAppEnvRepository
     {

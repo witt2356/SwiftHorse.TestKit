@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SwiftHorse.Repository.EntityFrameworkCore;
 using SwiftHorse.TestKit.Infrastructure;
+using SwiftHorse.TestKit.WebApi.Filters;
 
 namespace SwiftHorse.TestKit.WebApi
 {
@@ -26,8 +27,12 @@ namespace SwiftHorse.TestKit.WebApi
             {
                 builder.UseMySql(Configuration.GetConnectionString("MySql"));
             });
+            services.AddScoped<UnitOfWorkFilter>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc((options) =>
+            {
+                options.Filters.Add<UnitOfWorkAttribute>();
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
             {

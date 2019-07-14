@@ -18,6 +18,10 @@ namespace SwiftHorse.TestKit
 {
     public static class ApplicationBuilderExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
         public static void UseTestKit(this IApplicationBuilder app)
         {
             var options = app.ApplicationServices.GetService<IOptions<TestKitOptions>>().Value;
@@ -55,7 +59,7 @@ namespace SwiftHorse.TestKit
         {
             var content = JsonConvert.SerializeObject(new { options.AppId, Apis = apis });
             var httpClient = new HttpClient() { BaseAddress = new Uri(options.Host) };
-            await httpClient.PutAsync("/api/ApiInfo", new StringContent(content, Encoding.UTF8, ContentTypes.Json));
+            await httpClient.PutAsync(options.Url, new StringContent(content, Encoding.UTF8, ContentTypes.Json));
         }
     }
 
