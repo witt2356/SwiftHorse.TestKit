@@ -39,7 +39,12 @@ namespace SwiftHorse.TestKit.WebApi
                 c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "My API", Version = "v1" });
             });
 
-            services.AddTestKit((builder) => { builder.UseInfrastructure().UseQuery(); });
+            services.AddTestKit((builder) =>
+            {
+                builder.UseLocalRunner();
+                builder.UseInfrastructure();
+                builder.UseQuery();
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

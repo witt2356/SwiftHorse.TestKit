@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SwiftHorse.TestKit.AspNetCore\SwiftHorse.TestKit.AspNetCore.csproj" />
     <ProjectReference Include="..\SwiftHorse.TestKit.Infrastructure\SwiftHorse.TestKit.Infrastructure.csproj" />
+    <ProjectReference Include="..\SwiftHorse.TestKit.LocalRunner\SwiftHorse.TestKit.LocalRunner.csproj" />
   </ItemGroup>
 
 </Project>

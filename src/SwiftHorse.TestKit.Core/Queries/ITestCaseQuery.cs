@@ -8,8 +8,4 @@ namespace SwiftHorse.TestKit.Core
     {
         Task<IEnumerable<TestCaseDto>> Query(Guid id);
     }
-
-    internal interface ITestCaseQuery<TRepository> : ITestCaseQuery where TRepository : IRepository
-    {
-    }
 }

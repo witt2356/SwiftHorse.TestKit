@@ -2,6 +2,7 @@
 using SwiftHorse.TestKit.Core.Domain;
 using SwiftHorse.TestKit.Core.Runner;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -18,9 +19,12 @@ namespace SwiftHorse.TestKit.LocalRunner
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task Execute(string host, TestCaseDto testCase)
+        public async Task Execute(string host, IEnumerable<TestCaseDto> testCases)
         {
-            var response = await SendAsync(host, testCase);
+            foreach (var testCase in testCases)
+            {
+                var response = await SendAsync(host, testCase);
+            }
         }
 
         public async Task<HttpResponseMessage> SendAsync(string host, TestCaseDto testCase)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SwiftHorse.TestKit.Core.Domain;
+using SwiftHorse.TestKit.Core.Queries;
 using System;
 using System.Threading.Tasks;
 
@@ -20,16 +21,16 @@ namespace SwiftHorse.TestKit.Core.Runner
             _appEnvRepository = appEnvRepository;
         }
 
-        public async Task RunSingle(Guid envId, Guid id)
+        public async Task RunSingle(Guid envId, Guid caseId)
         {
-            var query = _serviceProvider.GetService<ITestCaseQuery<ITestCaseRepository>>();
-            await Run(envId, query, id);
+            var query = ActivatorUtilities.CreateInstance<SingleTestCaseQuery>(_serviceProvider);
+            await Run(envId, query, caseId);
         }
 
-        public async Task RunIntegration(Guid envId, Guid id)
+        public async Task RunIntegration(Guid envId, Guid integrationId)
         {
-            var query = _serviceProvider.GetService<ITestCaseQuery<IIntegrationTestRepository>>();
-            await Run(envId, query, id);
+            var query = ActivatorUtilities.CreateInstance<IntegrationTestCaseQuery>(_serviceProvider);
+            await Run(envId, query, integrationId);
         }
 
         private async Task Run(Guid envId, ITestCaseQuery query, Guid id)
@@ -37,10 +38,7 @@ namespace SwiftHorse.TestKit.Core.Runner
             var env = await _appEnvRepository.FirstOrDefaultAsync(x => x.Id == envId);
 
             var testCases = await query.Query(id);
-            foreach (var testCase in testCases)
-            {
-                await _executor.Execute(env.Host, testCase);
-            }
+            await _executor.Execute(env.Host, testCases);
         }
     }
 }

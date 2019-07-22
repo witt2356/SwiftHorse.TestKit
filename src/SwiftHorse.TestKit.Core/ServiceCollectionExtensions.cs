@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SwiftHorse.TestKit.Core.IServices;
+using SwiftHorse.TestKit.Core.Runner;
 using SwiftHorse.TestKit.Core.Services;
 using System;
 
@@ -17,7 +18,10 @@ namespace SwiftHorse.TestKit
             var builder = new TestKitBuilder(services);
             configure?.Invoke(builder);
 
+            services.AddScoped<TestRunner>();
+
             services.AddScoped<IAppInfoService, AppInfoService>();
+            services.AddScoped<IAppEnvService, AppEnvService>();
             services.AddScoped<IApiInfoService, ApiInfoService>();
         }
     }

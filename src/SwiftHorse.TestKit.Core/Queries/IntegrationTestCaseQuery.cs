@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SwiftHorse.TestKit.Core
 {
-    internal class IntegrationTestCaseQuery : ITestCaseQuery<IIntegrationTestRepository>
+    internal class IntegrationTestCaseQuery : ITestCaseQuery
     {
         private readonly IIntegrationTestRepository _repository;
 

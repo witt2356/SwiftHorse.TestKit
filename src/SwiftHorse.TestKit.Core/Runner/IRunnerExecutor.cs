@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SwiftHorse.TestKit.Core.Runner
 {
@@ -11,8 +12,8 @@ namespace SwiftHorse.TestKit.Core.Runner
         /// 
         /// </summary>
         /// <param name="host"></param>
-        /// <param name="testCase"></param>
+        /// <param name="testCases"></param>
         /// <returns></returns>
-        Task Execute(string host, TestCaseDto testCase);
+        Task Execute(string host, IEnumerable<TestCaseDto> testCases);
     }
 }
